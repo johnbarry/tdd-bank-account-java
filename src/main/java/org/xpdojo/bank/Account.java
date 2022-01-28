@@ -16,4 +16,12 @@ public class Account {
         balance += amount;
         return this;
     }
+
+    public Account withdraw(int amount) throws IntoOverdraftException {
+        if (amount > balance) {
+            throw new IntoOverdraftException(balance, amount);
+        }
+        balance -= amount;
+        return this;
+    }
 }
